@@ -35,6 +35,18 @@ static const CGFloat kDefaultMonthBarButtonWidth = 60;
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.backgroundColor = [UIColor clearColor];
+    
+    self.selectedDate = nil;
+    self.displayedDate = [NSDate date];
+    
+    _monthBarHeight = 48;
+    _weekBarHeight = 32;    
+}
+
 - (NSCalendar *) calendar {
     if (!_calendar) {
         _calendar = [NSCalendar currentCalendar];
