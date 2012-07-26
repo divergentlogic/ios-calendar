@@ -26,21 +26,13 @@
     return self;
 }
 
-- (void) dealloc {
-    [_startDate release];
-    [_endDate release];
-
-    [super dealloc];
-}
-
 - (NSDate *) startDate {
     return _startDate;
 }
 
 - (void) setStartDate: (NSDate *) startDate {
     if (_startDate != startDate) {
-        [_startDate release];
-        _startDate = [startDate retain];
+        _startDate = startDate;
         [self setNeedsLayout];
     }
 }
@@ -51,8 +43,7 @@
 
 - (void) setEndDate: (NSDate *) endDate {
     if (_endDate != endDate) {
-        [_endDate release];
-        _endDate = [endDate retain];
+        _endDate = endDate;
         [self setNeedsLayout];
     }
 }
